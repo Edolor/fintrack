@@ -82,7 +82,11 @@ function Login() {
         }, 2000);
       }
     } catch(error) {
-        setError(() => `Invalid username or password`)  
+        if (error?.response?.statusText === undefined) {
+          setError(() => `No internet connection!`);  
+        } else {
+          setError(() => `Invalid username or password`);  
+        }
     }
 
     setStatus(() => "normal");
@@ -141,28 +145,28 @@ function Login() {
             </aside>
 
             <section id="formWrapper" className="w-full">
-              <div className="container mx-auto py-10 flex flex-col lg:flex-row">
+              <div className="container mx-auto py-10 px-4 flex flex-col lg:flex-row">
                 <article className="w-full flex justify-center items-center py-10">
                   <div className="bg-white -mt-32 rounded-xl p-6 max-w-3xl w-full space-y-2 flex flex-col 
-                      items-center drop-shadow-lg sm:p-10 sm:py-12 md:mx-0">
+                      items-center drop-shadow-lg sm:p-8 md:p-10 sm:py-12 md:mx-0">
 
                       <div className="flex flex-col justify-center w-full">
                         <h1 className="font-serif text-[40px] text-center font-bold text-black mb-10">
                           Login
                         </h1>
 
-                        <div className="flex items-start gap-x-16">
-                          <div className="w-1/2 pr-6 border-r self-stretch border-zinc-100 ">
-                            <p className="text-lg text-black mb-4">
+                        <div className="flex items-start flex-col gap-y-10 md:gap-y-0 md:flex-row md:gap-x-16">
+                          <div className="w-full self-stretch md:border-r md:border-zinc-100 md:w-1/2 md:pr-6">
+                            <p className="text-lg text-black mb-4 text-center md:text-left">
                               Using social networking accounts
                             </p>
 
-                            <div className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-4 items-center md:items-start">
                               <button onClick={() => {
                                 setStatus(() => "loading");
                                 login();
                               }} className="group text-google text-xl py-3 px-5 rounded-md 
-                                  border border-google flex items-center gap-6 w-max">
+                                  border border-google flex items-center flex-wrap gap-6 w-max">
                                 <img src={googleLogo} className="h-6 w-6 transition-transform" alt="Google logo" />
                                 <span className="group-hover:underline">Login with Google</span>
                               </button>
@@ -178,7 +182,7 @@ function Login() {
                             </div>
                           </div>
 
-                          <article className="w-1/2 flex flex-col items-center px-4 md:px-0 lg:items-start">
+                          <article className="w-full flex flex-col items-center md:px-0 lg:items-start md:w-1/2">
                             <form onSubmit={handleSubmit} id="login-form" method="post" className="w-full space-y-4 sm:space-y-4">
                               {
                                 /** Error message */

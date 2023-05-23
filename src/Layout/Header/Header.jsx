@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="w-full fixed top-0 left-0 z-40 shadow-sm bg-white">
-        <div className="container mx-auto py-4 flex items-center justify-between px-2 sm:px-0">
+        <div className="container mx-auto py-4 flex items-center justify-between px-2">
           <Link to={loggedIn ? "/dashboard" : "/"}>
                 <img src={logoHome} alt="Logo for FinTrack" />
           </Link>

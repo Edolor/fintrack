@@ -156,7 +156,12 @@ function Register() {
         if (errors?.last_name) {
             setLastNameError(errors?.last_name[0]);
         }
-        setError(() => `${error?.response?.statusText}!`);  
+
+        if (error?.response?.statusText === undefined) {
+          setError(() => `No internet connection!`);  
+        } else {
+          setError(() => `${error?.response?.statusText}!`);  
+        }
     }
 
     setStatus(() => "normal");
@@ -177,10 +182,10 @@ function Register() {
             </aside>
 
             <section id="formWrapper" className="w-full">
-              <div className="container mx-auto py-10 flex flex-col lg:flex-row">
+              <div className="container mx-auto py-10 flex flex-col px-4 lg:flex-row">
                 <article className="w-full flex justify-center items-center py-10">
                   <div className="bg-white -mt-32 rounded-xl p-6 max-w-xl w-full space-y-2 flex flex-col 
-                      items-center drop-shadow-lg sm:p-10 sm:py-12 md:mx-0">
+                      items-center drop-shadow-lg sm:p-8 sm:py-12 md:mx-0">
 
                       <div className="flex flex-col justify-center w-full">
                         <h1 className="font-serif text-[40px] text-center font-bold text-black mb-8">
@@ -215,7 +220,7 @@ function Register() {
                             </div>
                           </div>
 
-                          <article className="w-full flex flex-col items-center px-4 md:px-0">
+                          <article className="w-full flex flex-col items-center">
                             <form onSubmit={handleSubmit} id="contact-form" method="post" className="w-full space-y-4 sm:space-y-4">
                               {
                                 /** Error message */

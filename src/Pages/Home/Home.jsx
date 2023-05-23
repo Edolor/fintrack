@@ -8,7 +8,7 @@ export default function Home() {
       <section id="hero" className="w-full relative flex flex-col justify-center min-h-[40vh]
           bg-yellowish lg:min-h-[80vh] lg:py-8">
         <div className="container mx-auto flex justify-center items-center h-full px-6 lg:justify-start sm:px-10 xl:px-14">
-          <div className="w-full flex flex-col space-y-6 items-center py-14 sm:py-10 lg:w-1/2 lg:items-start">
+          <div className="w-full flex flex-col space-y-6 items-center py-24 md:py-14 sm:py-10 lg:w-1/2 lg:items-start">
             <h1 className="font-serif font-extrabold dark:text-zinc-100 max-w-lg flex flex-col space-y-px text-center 
                 text-5xl items-center sm:text-[56px] lg:items-start md:text-left">
               <span className="leading-tight text-center lg:text-left"><span className="text-primary">Easiest way</span> to</span> 
