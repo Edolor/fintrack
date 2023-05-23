@@ -225,7 +225,7 @@ function Register() {
                               {
                                 /** Error message */
                                 error && (
-                                  <Message type="error" message={error} status={true} />
+                                  <Message type="error" message={error} show={error} setShow={setError} />
                                 )
                               }
                               <div className="flex flex-col space-y-2">
@@ -291,7 +291,7 @@ function Register() {
             {
               success && (
                 <div className="fixed left-4 bottom-4 flex flex-col space-y-4 z-10">
-                  <Message type="success" message={message} status={success} />
+                  <Message type="success" message={message} show={error} setShow={setError} />
                 </div>
               )
             }

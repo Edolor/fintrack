@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Icon from "../Icon/Icon";
 
-function Message({type, message, show=true}) {
-
-    const [shown, setShown] = useState(show);
+function Message({type, message, show, setShow}) {
 
     const handleClose = () => { 
-        setShown(() => false);
+        // Remove message
+        setShow(() => "");
     }
 
     return (
@@ -14,7 +13,7 @@ function Message({type, message, show=true}) {
             {
                 (type === "success") && (
                     <div className={`bg-green-600 text-white px-6 py-3 font-semibold flex items-center transition-transform
-                        rounded-md space-x-3 ${shown ? "translate-x-0" : "-translate-x-96"}`}>
+                        rounded-md space-x-3 ${show ? "translate-x-0" : "-translate-x-96"}`}>
                         <div>{message}</div>
                         <button className="hover:bg-green-500 h-8 w-8 rounded-full flex justify-center items-center
                                     active:scale-95 transition-transform" onClick={handleClose}>
@@ -27,7 +26,7 @@ function Message({type, message, show=true}) {
             {
                 (type === "error") && (
                     <div className={`bg-red-100 text-red-600 px-6 py-3 items-center justify-between transition-transform
-                            rounded-md space-x-3 ${shown ? "flex" : "hidden"}`}>
+                            rounded-md space-x-3 ${show ? "flex" : "hidden"}`}>
                         <div>{message}</div>
                         <button type="button" className="hover:bg-red-200 h-8 w-8 rounded-full flex justify-center items-center
                                     active:scale-95 transition-transform" onClick={handleClose}>
