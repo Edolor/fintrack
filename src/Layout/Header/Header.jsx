@@ -22,7 +22,7 @@ export default function Header() {
           </Link>
 
 
-          <div className="flex flex-row items-center justify-between space-x-10">
+          <div className="hidden flex-row items-center justify-between space-x-10 sm:flex">
             {
               !loggedIn ? (
                 <>
