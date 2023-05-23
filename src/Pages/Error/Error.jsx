@@ -1,7 +1,11 @@
-import { Link, useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ErrorPage() {
-  const error = useRouteError();
+  // const error = useRouteError();
+  // "<p>
+  // {/* <i>{error.statusText || error.message}</i> */}
+  // </p>
+  // "
   document.title = "Page not found(404)";
   return (
     <>
@@ -13,10 +17,6 @@ export default function ErrorPage() {
           </p>
           <p className="text-lg sm:text-xl text-center dark:text-zinc-100 mt-1">
             Start tracking your finances today.
-          </p>
-
-          <p>
-            <i>{error.statusText || error.message}</i>
           </p>
 
           <div className="flex space-x-8 mt-8 gap-y-3 flex-wrap justify-center">
